@@ -3,6 +3,35 @@ local MyLibrary = {}
 MyLibrary.Version = "1.0.0"
 MyLibrary.Author = "Jriik89"
 
+MyLibrary.Trader = {
+    AutoAcceptTrade = StateManager.get("Trader_AutoAcceptTrade", false),
+    SelectedFish = StateManager.get("Trader_SelectedFish", {}),
+    TradePlayer = StateManager.get("Trader_TradePlayer", ""),
+    TradeAllFish = StateManager.get("Trader_TradeAllFish", false)
+}
+
+MyLibrary.Server = {
+    PlayerInfo = StateManager.get("Server_PlayerInfo", false),
+    ServerInfo = StateManager.get("Server_ServerInfo", false),
+    LuckBoost = StateManager.get("Server_LuckBoost", false),
+    SeedViewer = StateManager.get("Server_SeedViewer", false),
+    ForceEvent = StateManager.get("Server_ForceEvent", false),
+    RejoinSameServer = StateManager.get("Server_RejoinSameServer", false),
+    ServerHop = StateManager.get("Server_ServerHop", false),
+    ViewPlayerStats = StateManager.get("Server_ViewPlayerStats", false)
+}
+
+MyLibrary.System = {
+    ShowInfo = StateManager.get("System_ShowInfo", false),
+    BoostFPS = StateManager.get("System_BoostFPS", false),
+    FPSLimit = StateManager.get("System_FPSLimit", 60),
+    AutoCleanMemory = StateManager.get("System_AutoCleanMemory", false),
+    DisableParticles = StateManager.get("System_DisableParticles", false),
+    RejoinServer = StateManager.get("System_RejoinServer", false),
+    AutoFarm = StateManager.get("System_AutoFarm", false),
+    FarmRadius = StateManager.get("System_FarmRadius", 100)
+}
+
 MyLibrary.RngKill = {
     RNGReducer = StateManager.get("RNGKill_RNGReducer", false),
     ForceLegendary = StateManager.get("RNGKill_ForceLegendary", false),
