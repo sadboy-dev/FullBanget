@@ -24,7 +24,14 @@ getgenv().getModule = getModule
 getgenv().getRemote = getRemote
 
 -- Load library
-local MyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/sadboy-dev/FullBanget/refs/heads/main/Module/MyLibrary.lua"))()
+local success, MyLibrary = pcall(function()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/sadboy-dev/FullBanget/refs/heads/main/Module/MyLibrary.lua"))()
+end)
+
+if not success or not MyLibrary then
+    warn("Gagal load MyLibrary!")
+    return
+end
 
 -- Get Info
 local author = MyLibrary.Author or "Unknown"
