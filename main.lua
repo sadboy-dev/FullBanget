@@ -1,19 +1,17 @@
 -- main.lua
 
--- Ambil service Roblox
+-- Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
--- Definisikan fungsi getModule minimal supaya library bisa dipanggil
+-- Minimal getModule/getRemote supaya MyLibrary bisa dipanggil
 local function getModule(name)
     for _, child in ipairs(ReplicatedStorage:GetDescendants()) do
         if child:IsA("ModuleScript") and child.Name == name then
             return child
         end
     end
-    return nil
 end
 
--- Definisikan fungsi getRemote minimal (jika library memerlukan ini)
 local function getRemote(name)
     for _, child in ipairs(ReplicatedStorage:GetDescendants()) do
         if child:IsA("RemoteEvent") or child:IsA("RemoteFunction") then
@@ -22,20 +20,20 @@ local function getRemote(name)
             end
         end
     end
-    return nil
 end
 
--- Simpan fungsi ke global supaya MyLibrary bisa menggunakannya
 getgenv().getModule = getModule
 getgenv().getRemote = getRemote
 
--- Load library dari GitHub
+local kotak = string.rep("-", 22)
+
+
+-- Load library
 local MyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/sadboy-dev/FullBanget/refs/heads/main/Module/MyLibrary.lua"))()
 
--- Ambil variabel yang diinginkan
-local version = MyLibrary.Version
-local author = MyLibrary.Author
-
--- Print ke console
-print("Library Version:", version)
-print("Library Author:", author)
+-- Output aesthetic untuk Delta
+print(kotak)
+print("✨ Welcome To Jungle ✨")
+print("👤 Author : " .. (MyLibrary.Author or "Unknown"))
+print("📌 Version: " .. (MyLibrary.Version or "N/A"))
+print(kotak)
