@@ -1,5 +1,3 @@
--- main.lua
-
 -- Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -25,15 +23,21 @@ end
 getgenv().getModule = getModule
 getgenv().getRemote = getRemote
 
-local kotak = string.rep("-", 22)
-
-
 -- Load library
 local MyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/sadboy-dev/FullBanget/refs/heads/main/Module/MyLibrary.lua"))()
 
--- Output aesthetic untuk Delta
-print(kotak)
-print("✨ Welcome To Jungle ✨")
-print("👤 Author : " .. (MyLibrary.Author or "Unknown"))
-print("📌 Version: " .. (MyLibrary.Version or "N/A"))
-print(kotak)
+-- Get Info
+local author = MyLibrary.Author or "Unknown"
+local version = MyLibrary.Version or "N/A"
+
+-- Tentukan panjang kotak berdasarkan text terpanjang
+local maxLength = math.max(#("Author: " .. author), #("Version: " .. version)) + 4
+
+-- Buat garis atas/bawah
+local line = "═":rep(maxLength)
+
+-- Cetak kotak aesthetic
+print("╔" .. line .. "╗")
+print("║ " .. "Author: " .. author .. string.rep(" ", maxLength - #("Author: " .. author) - 2) .. " ║")
+print("║ " .. "Version: " .. version .. string.rep(" ", maxLength - #("Version: " .. version) - 2) .. " ║")
+print("╚" .. line .. "╝")
