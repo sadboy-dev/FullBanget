@@ -1,3 +1,5 @@
+-- main.lua
+
 -- Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -22,6 +24,11 @@ end
 
 getgenv().getModule = getModule
 getgenv().getRemote = getRemote
+
+
+-- Load library
+-- local MyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/sadboy-dev/FullBanget/refs/heads/main/Module/MyLibrary.lua"))()
+
 
 -- Load library
 local success, MyLibrary = pcall(function()
