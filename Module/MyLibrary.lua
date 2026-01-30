@@ -3,6 +3,15 @@ local MyLibrary = {}
 MyLibrary.Version = "1.0.0"
 MyLibrary.Author = "Jriik89"
 
+MyLibrary.RngKill = {
+    RNGReducer = StateManager.get("RNGKill_RNGReducer", false),
+    ForceLegendary = StateManager.get("RNGKill_ForceLegendary", false),
+    SecretFishBoost = StateManager.get("RNGKill_SecretFishBoost", false),
+    MythicalChanceBoost = StateManager.get("RNGKill_MythicalChanceBoost", false),
+    AntiBadLuck = StateManager.get("RNGKill_AntiBadLuck", false),
+    GuaranteedCatch = StateManager.get("RNGKill_GuaranteedCatch", false)
+}
+
 MyLibrary.Remotes = {
     VoiceChatTokenRequest = getRemote("VoiceChatTokenRequest"),
     GetServerVersion = getRemote("GetServerVersion"),
@@ -978,6 +987,46 @@ MyLibrary.Controller = {
     resetAssembly = getModule("resetAssembly"),
     getThumbstick = getModule("getThumbstick")
 }
+
+MyLibrary.Rods = {
+    "!!! Starter Rod", "!!! Carbon Rod", "!!! Toy Rod", "!!! Grass Rod", "!!! Lava Rod", 
+    "!!! Demascus Rod", "!!! Ice Rod", "!!! Lucky Rod", "!!! Midnight Rod", "!!! Steampunk Rod", 
+    "!!! Chrome Rod", "!!! Astral Rod", "!!! Ares Rod", "!!! Angler Rod", "!!! Gingerbread Rod",
+    "!!! Candy Cane Rod", "!!! Christmas Tree Rod", "!!! Cute Rod", "!!! Angelic Rod", "!!! Ghoul Rod",
+    "!!! Forsaken", "!!! Red Matter", "!!! Lightsaber", "!!! Crystalized", "!!! Earthly",
+    "!!! Neptune's Trident", "!!! Polarized", "!!! Heavenly", "!!! Blossom", "!!! Lightning",
+    "!!! Loving", "!!! Aqua Prism", "!!! Aquatic", "!!! Aether Shard", "!!! Flower Garden",
+    "!!! Amber", "!!! Abyssal Chroma", "!!! Jelly", "!!! Ghostfinn Rod", "!!! Enlightened",
+    "!!! Cursed", "!!! Galactic", "!!! Fiery", "!!! Pirate Octopus", "!!! Pinata",
+    "!!! Purple Saber", "!!! Abyssfire", "!!! Planetary", "!!! Soulreaver", "!!! Disco",
+    "!!! Timeless"
+}
+
+MyLibrary.Baits = {
+    "Starter Bait", "Nature Bait", "Chroma Bait", "Gold Bait", "Hyper Bait", "Dark Matter Bait", 
+    "Luck Bait", "Midnight Bait", "Bag-O-Gold", "Beach Ball Bait", "Frozen Bait", "Topwater Bait",
+    "Anchor Bait", "Ornament Bait", "Jolly Bait", "Corrupt Bait", "Aether Bait"
+}
+
+MyLibrary.Boats = {
+    "Small Boat", "Speed Boat", "Festive Duck", "Santa Sleigh", "Frozen Boat", "Mini Yacht",
+    "Rubber Ducky", "Mega Hovercraft", "Cruiser Boat", "Mini Hoverboat", "Aura Boat", "Hyper Boat",
+    "Fishing Boat", "Highfield Boat", "Jetski", "Kayak", "Alpha Floaty", "Dinky Fishing Boat",
+    "DEV Evil Duck 9000", "Burger Boat"
+}
+
+MyLibrary.Events = {
+    "Day", "Night", "Cloudy", "Mutated", "Wind", "Storm", "Increased Luck", "Shark Hunt", 
+    "Ghost Shark Hunt", "Sparkling Cove", "Snow", "Worm Hunt", "Radiant", "Admin - Shocked",
+    "Admin - Black Hole", "Admin - Ghost Worm", "Admin - Meteor Rain", "Admin - Super Mutated",
+    "Admin - Super Luck"
+}
+
+MyLibrary.FishRarities = {
+    "Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythical", "Secret"
+}
+
+
 
 function MyLibrary.Print(msg)
     print("[MyLibrary]:", msg)
