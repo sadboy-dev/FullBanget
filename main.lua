@@ -1,8 +1,23 @@
--- main.lua
+-- =========================================================
+-- FULL BANGET | Anti Double Execute (Delta Executor)
+-- =========================================================
+
+-- >>> ANTI DOUBLE RUN (WAJIB PALING ATAS)
+local _G = getgenv()
+if _G.FULLBANGET_LOADED then
+    return
+end
+_G.FULLBANGET_LOADED = true
+-- <<< END GUARD
+
+
 -- Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
--- Minimal getModule/getRemote supaya MyLibrary bisa dipanggil
+-- =========================================================
+-- Utils
+-- =========================================================
+
 local function getModule(name)
     for _, child in ipairs(ReplicatedStorage:GetDescendants()) do
         if child:IsA("ModuleScript") and child.Name == name then
@@ -13,10 +28,8 @@ end
 
 local function getRemote(name)
     for _, child in ipairs(ReplicatedStorage:GetDescendants()) do
-        if child:IsA("RemoteEvent") or child:IsA("RemoteFunction") then
-            if child.Name == name then
-                return child
-            end
+        if (child:IsA("RemoteEvent") or child:IsA("RemoteFunction")) and child.Name == name then
+            return child
         end
     end
 end
@@ -24,29 +37,33 @@ end
 getgenv().getModule = getModule
 getgenv().getRemote = getRemote
 
--- Load library dengan aman
-local success, MyLibrary = pcall(function()
-    return loadstring(game:HttpGet("https://raw.githubusercontent.com/sadboy-dev/FullBanget/refs/heads/main/Module/MyLibrary.lua"))()
-end)
+-- =========================================================
+-- Load Library
+-- =========================================================
 
-if not success or not MyLibrary then
-    warn("Gagal load MyLibrary!")
-    return
-end
+local MyLibrary = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/sadboy-dev/FullBanget/refs/heads/main/Module/MyLibrary.lua"
+))()
+
+-- =========================================================
+-- Info Print
+-- =========================================================
 
 local author = MyLibrary.Author or "Unknown"
 local version = MyLibrary.Version or "N/A"
 
--- Tentukan panjang kotak berdasarkan text terpanjang
-local text1 = "Author: " .. author
-local text2 = "Version: " .. version
+local maxLength = math.max(
+    #("Author: " .. author),
+    #("Version: " .. version)
+) + 4
 
-local maxLength = math.max(#text1, #text2)
+local line = "═":rep(maxLength)
 
-local line = "+" .. string.rep("-", maxLength + 9) .. "+"
+print("╔" .. line .. "╗")
+print(". Author: " .. author .. string.rep(" ", maxLength - #("Author: " .. author) - 1) .. "")
+print("  Version: " .. version .. string.rep(" ", maxLength - #("Version: " .. version) - 1) .. "")
+print("╚" .. line .. "╝")
 
-print(line)
-print("" .. text1 .. string.rep(" ", maxLength - #text1) .. "")
-print("" .. text2 .. string.rep(" ", maxLength - #text2) .. "")
-print(line)
-
+-- =========================================================
+-- END
+-- =========================================================
