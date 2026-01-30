@@ -3,6 +3,42 @@ local MyLibrary = {}
 MyLibrary.Version = "1.0.0"
 MyLibrary.Author = "Jriik89"
 
+MyLibrary.Player = {
+    SpeedHack = StateManager.get("Player_SpeedHack", false),
+    SpeedValue = StateManager.get("Player_SpeedValue", 16),
+    MaxBoatSpeed = StateManager.get("Player_MaxBoatSpeed", false),
+    InfinityJump = StateManager.get("Player_InfinityJump", false),
+    Fly = StateManager.get("Player_Fly", false),
+    FlyRange = StateManager.get("Player_FlyRange", 50),
+    FlyBoat = StateManager.get("Player_FlyBoat", false),
+    GhostHack = StateManager.get("Player_GhostHack", false),
+    PlayerESP = StateManager.get("Player_PlayerESP", false),
+    ESPBox = StateManager.get("Player_ESPBox", true),
+    ESPLines = StateManager.get("Player_ESPLines", true),
+    ESPName = StateManager.get("Player_ESPName", true),
+    ESPLevel = StateManager.get("Player_ESPLevel", true),
+    ESPRange = StateManager.get("Player_ESPRange", false),
+    ESPHologram = StateManager.get("Player_ESPHologram", false),
+    Noclip = StateManager.get("Player_Noclip", false),
+    AutoSell = StateManager.get("Player_AutoSell", false),
+    AutoCraft = StateManager.get("Player_AutoCraft", false),
+    AutoUpgrade = StateManager.get("Player_AutoUpgrade", false),
+    SpawnBoat = StateManager.get("Player_SpawnBoat", false),
+    NoClipBoat = StateManager.get("Player_NoClipBoat", false)
+}
+
+MyLibrary.Bypass = {
+    AntiAFK = StateManager.get("Bypass_AntiAFK", true),
+    AutoJump = StateManager.get("Bypass_AutoJump", false),
+    AutoJumpDelay = StateManager.get("Bypass_AutoJumpDelay", 2),
+    AntiKick = StateManager.get("Bypass_AntiKick", true),
+    AntiBan = StateManager.get("Bypass_AntiBan", true),
+    BypassFishingRadar = StateManager.get("Bypass_BypassFishingRadar", false),
+    BypassDivingGear = StateManager.get("Bypass_BypassDivingGear", false),
+    BypassFishingAnimation = StateManager.get("Bypass_BypassFishingAnimation", false),
+    BypassFishingDelay = StateManager.get("Bypass_BypassFishingDelay", false)
+}
+
 MyLibrary.Trader = {
     AutoAcceptTrade = StateManager.get("Trader_AutoAcceptTrade", false),
     SelectedFish = StateManager.get("Trader_SelectedFish", {}),
