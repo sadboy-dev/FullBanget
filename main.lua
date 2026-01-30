@@ -43,20 +43,10 @@ local text2 = "Version: " .. version
 
 local maxLength = math.max(#text1, #text2)
 
-local line = "+" .. string.rep("-", maxLength + 2) .. "+"
+local line = "+" .. string.rep("-", maxLength + 9) .. "+"
 
 print(line)
-print("| " .. text1 .. string.rep(" ", maxLength - #text1) .. " |")
-print("| " .. text2 .. string.rep(" ", maxLength - #text2) .. " |")
+print("" .. text1 .. string.rep(" ", maxLength - #text1) .. "")
+print("" .. text2 .. string.rep(" ", maxLength - #text2) .. "")
 print(line)
 
--- local maxLength = math.max(#("Author: " .. author), #("Version: " .. version)) + 4
-
--- Buat garis atas/bawah (gunakan string.rep)
--- local line = string.rep("═", maxLength)
-
--- Cetak kotak aesthetic
--- print("╔" .. line .. "╗")
--- print("║ " .. "Author: " .. author .. string.rep(" ", maxLength - #("Author: " .. author) - 2) .. " ║")
--- print("║ " .. "Version: " .. version .. string.rep(" ", maxLength - #("Version: " .. version) - 2) .. " ║")
--- print("╚" .. line .. "╝")
