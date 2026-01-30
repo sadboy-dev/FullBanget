@@ -38,13 +38,25 @@ local author = MyLibrary.Author or "Unknown"
 local version = MyLibrary.Version or "N/A"
 
 -- Tentukan panjang kotak berdasarkan text terpanjang
-local maxLength = math.max(#("Author: " .. author), #("Version: " .. version)) + 4
+local text1 = "Author: " .. author
+local text2 = "Version: " .. version
+
+local maxLength = math.max(#text1, #text2)
+
+local line = "+" .. string.rep("-", maxLength + 2) .. "+"
+
+print(line)
+print("| " .. text1 .. string.rep(" ", maxLength - #text1) .. " |")
+print("| " .. text2 .. string.rep(" ", maxLength - #text2) .. " |")
+print(line)
+
+-- local maxLength = math.max(#("Author: " .. author), #("Version: " .. version)) + 4
 
 -- Buat garis atas/bawah (gunakan string.rep)
-local line = string.rep("═", maxLength)
+-- local line = string.rep("═", maxLength)
 
 -- Cetak kotak aesthetic
-print("╔" .. line .. "╗")
-print("║ " .. "Author: " .. author .. string.rep(" ", maxLength - #("Author: " .. author) - 2) .. " ║")
-print("║ " .. "Version: " .. version .. string.rep(" ", maxLength - #("Version: " .. version) - 2) .. " ║")
-print("╚" .. line .. "╝")
+-- print("╔" .. line .. "╗")
+-- print("║ " .. "Author: " .. author .. string.rep(" ", maxLength - #("Author: " .. author) - 2) .. " ║")
+-- print("║ " .. "Version: " .. version .. string.rep(" ", maxLength - #("Version: " .. version) - 2) .. " ║")
+-- print("╚" .. line .. "╝")
